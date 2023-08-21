@@ -1,0 +1,12 @@
+<h2>Yachts</h2>
+
+<div class="container">
+  <ul>
+    <% @yachts.each do |yacht| %>
+      <li><%= yacht.name %></li>
+      <li>Location:<%= yacht.location %></li>
+      <li>Price: £<%= yacht.price_per_night %></li>
+      <li>Capacity:<%= yacht.capacity %></li>
+    <% end %>
+  </ul>
+</div>
