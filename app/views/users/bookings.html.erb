@@ -4,6 +4,13 @@
 <ul>
 <li>
 <%= booking.yacht.user.first_name %>
+  <% if booking.request == nil %>
+    <%= "pending"  %>
+  <% elsif booking.request == true %>
+    <%= "accepted" %>
+  <% else %>
+    <%= "rejected" %>
+  <% end %>
 </li>
 </ul>
 <% end %>
