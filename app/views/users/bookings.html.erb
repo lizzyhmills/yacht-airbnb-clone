@@ -1,0 +1,9 @@
+<h1>Hello from user bookings</h1>
+
+<% @bookings.each do |booking| %>
+<ul>
+<li>
+<%= booking.yacht.user.first_name %>
+</li>
+</ul>
+<% end %>
