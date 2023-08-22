@@ -1,5 +1,6 @@
 class YachtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @yachts = Yacht.all
   end
@@ -8,7 +9,6 @@ class YachtsController < ApplicationController
     @yacht = Yacht.find(params[:id])
     @user = current_user
     @booking = Booking.new
-
   end
 
   def new
@@ -31,5 +31,4 @@ class YachtsController < ApplicationController
   def yacht_params
     params.require(:yacht).permit(:capacity, :price_per_night, :name, :description, :location, :amenities)
   end
-
 end
