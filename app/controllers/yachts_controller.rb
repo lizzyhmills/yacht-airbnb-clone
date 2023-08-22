@@ -12,13 +12,15 @@ class YachtsController < ApplicationController
   end
 
   def new
-
+    @yacht = Yacht.new
   end
 
   def create
+    @user = current_user
     @yacht = Yacht.new(yacht_params)
+    @yacht.user = @user
     if @yacht.save
-      redirect_to yacht_path(@yacht)
+      redirect_to mylistings_path
     else
       render :new, status: :unprocessable_entity
     end
