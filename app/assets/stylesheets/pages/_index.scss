@@ -1,2 +1,36 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.show-nav {
+  display:flex;
+  justify-content: space-between;
+}
+
+.cards {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.yacht-cards {
+  grid-template-columns: 1fr 1fr 1fr;
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.top-text {
+  display: flex;
+  justify-content: space-between;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1F2833;
+  }
+}
+
+.bottom-text {
+  display: flex;
+  justify-content: space-between;
+}
