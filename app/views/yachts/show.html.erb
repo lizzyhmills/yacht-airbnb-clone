@@ -11,6 +11,14 @@
 
 <%= link_to "Back to all Yachts", yachts_path %>
 
-<p>
-<%= link_to "create a booking", new_yacht_booking_path(@yacht)%>
-</p>
+<%= simple_form_for [@yacht, @booking] do |f| %>
+  <%= f.input :check_in,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :check_out,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+  <%= f.input :guests %>
+  <%= f.submit %>
+<% end %>
