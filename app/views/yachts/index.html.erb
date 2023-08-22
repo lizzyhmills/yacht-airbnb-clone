@@ -1,18 +1,34 @@
-<h2>Yachts</h2>
-
 <div class="container">
-  <ul>
-    <% @yachts.each do |yacht| %>
-      <li>
-        <%= link_to yacht.name, yacht_path(yacht) %> <!-- Link to show page -->
-        <ul>
-          <li>Location: <%= yacht.location %></li>
-          <li>Price: £<%= yacht.price_per_night %></li>
-          <li>Capacity: <%= yacht.capacity %></li>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+  <div class="show-nav">
+    <div>
+      <h2>Yachts</h2>
+      <p>Explore our magical yachts</p>
+    </div>
+    <%= link_to "Go back", yachts_path %> <!-- Link to index -->
+  </div>
+
+  <div class="container">
+    <div class="cards mt-4">
+        <% @yachts.each do |yacht| %>
+        <div class="yacht-cards">
+          <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
+              <div class="top-text mt-2">
+                  <h5><%= link_to yacht.name, yacht_path(yacht) %></h5> <!-- Link to show page -->
+                  <div><i class="fa-solid fa-person"></i><%= yacht.capacity %></div>
+              </div>
+              <div class="bottom-text">
+                <p><%= yacht.location %></p>
+                <p>£<%= yacht.price_per_night %></p>
+              </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Go back", yachts_path %> <!-- Link to index -->
+
+<!-- Styling notes to do:
+  - Nicer button on line 7
+  - New images for each iteration
+  - Link image?
+  - Edit cards w/ media-width >
