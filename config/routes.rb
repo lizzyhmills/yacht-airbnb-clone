@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
   devise_for :users
   root to: "yachts#home"
   resources :yachts
