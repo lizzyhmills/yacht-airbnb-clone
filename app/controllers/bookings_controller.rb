@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+
   def new
 
     @booking = Booking.new
@@ -19,6 +20,18 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(request: true)
+    redirect_to mylistings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(request: false)
+    redirect_to mylistings_path
   end
 
   private
