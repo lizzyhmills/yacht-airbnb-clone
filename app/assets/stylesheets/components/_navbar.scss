@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #1F2833;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,33 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+i {
+  font-size: 1.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #18C0D6;
+}
+
+  .dropdown-toggle::after {
+    margin-left: 1em; /* Adjust the value to your preference */
+  }
+
+  .btn-outline{
+    background-color: #18C0D6; /* Set the desired background color */
+    color: white; /* Set the text color */
+    border-color: #18C0D6; /* Set the border color to match the background color */
+  }
+
+  .brand_name{
+    color:#18C0D6;
+    font-style: italic;
+  }
+.navbar-toggler{
+    // background-color: #18C0D6; /* Set the desired background color */
+    color: white; /* Set the text color */
+    border-color: #18C0D6; /* Set the border color to match the background color */
+    border-radius: 25px;
+    border:none;
 }
