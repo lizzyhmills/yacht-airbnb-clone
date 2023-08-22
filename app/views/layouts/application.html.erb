@@ -11,42 +11,12 @@
   </head>
 
   <body>
+  <%=yield%>: <%= render "shared/navbar" %>
   <%# nav_bar %>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-    <div class="container-fluid">
-      <%= link_to "#", class: "navbar-brand" do %>
-        <i class="fa-solid fa-sailboat"></i>
-      <% end %>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-solid fa-user ms-2"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
- <%# nav_bar_end %>
-
   <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <%= yield %>
-
-
 
     </div>
   </body>
