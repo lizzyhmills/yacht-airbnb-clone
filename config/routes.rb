@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get 'mybookings', to: "users#bookings"
+  get 'mylistings', to: 'users#listings'
   resources :yachts do
     resources :bookings
   end

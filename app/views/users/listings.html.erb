@@ -1,0 +1,26 @@
+<h1>Host page</h1>
+<h2>My Yachts</h2>
+<% @user.yachts.each do |yacht| %>
+  <ul>
+    <li>
+     <%= yacht.name %>
+    </li>
+  </ul>
+<% end %>
+
+<h2>My listings</h2>
+<% @user.yachts.each do |yacht| %>
+  <ul>
+    <li>
+      <% yacht.bookings.each do |booking| %>
+       <ul>
+        <li>
+         <%= booking.user.email %> -
+         check in date:<%= booking.check_in %> -
+         check out date: <%= booking.check_out %>
+        </li>
+       </ul>
+       <% end %>
+    </li>
+  </ul>
+<% end %>
