@@ -3,7 +3,7 @@
     <%= link_to yachts_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-sailboat"></i>
     <% end %>
-       <p class="brand_name">Jacht</p>
+       <%# <p class="brand_name">Jacht</p> %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
@@ -25,6 +25,7 @@
             <% else %>
               <%= link_to "View Yachts", yachts_path, class: "dropdown-item" %>
               <%= link_to "Log In", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
             <% end %>
           </div>
         </li>
