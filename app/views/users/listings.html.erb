@@ -22,30 +22,25 @@
 
 <!-- My listings iteration-->
     <h2>My Listings</h2>
-    <% @user.yachts.each do |yacht| %>
-      <ul>
-        <li>
-          <% yacht.bookings.each do |booking| %>
-          <ul>
-            <li>
-            <%= booking.user.email %> -
-            check in date:<%= booking.check_in %> -
-            check out date: <%= booking.check_out %>
-            Requests:   <% if booking.request == nil %>
-                            <%= "pending"  %>
-                          <% elsif booking.request == true %>
-                            <%= "accepted" %>
-                          <% else %>
-                            <%= "rejected" %>
-                          <% end %>
-            </li>
-          </ul>
-          <%= button_to "accept", accept_booking_path(booking), method: :patch %>
-          <%= button_to "reject", reject_booking_path(booking), method: :patch %>
-          <% end %>
-        </li>
-      </ul>
+      <div class="booking-requests-container">
+        <% @user.yachts.each do |yacht| %>
+              <% yacht.bookings.each do |booking| %>
+                <h5><%= booking.user.email %></h5>
+                <p>Check-in date:<%= booking.check_in %></p>
+                <p>Check-out date: <%= booking.check_out %></p>
+                <p>Requests:   <% if booking.request == nil %>
+                                <%= "pending"%>
+                              <% elsif booking.request == true %>
+                               <%= "accepted" %>
+                              <% else %>
+                               <%= "rejected"%>
+                              <% end %></p>
+              <%= button_to "accept", accept_booking_path(booking), method: :patch %>
+              <%= button_to "reject", reject_booking_path(booking), method: :patch %>
+              <% end %>
+       </div>
     <% end %>
 
+<div class="container">
      <%= link_to "Create New Listing", new_yacht_path, class: "btn btn-primary btn-cta" %>
 </div>
