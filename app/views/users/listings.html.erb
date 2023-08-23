@@ -25,12 +25,12 @@
       <div class="booking-requests-container">
         <% @user.yachts.each do |yacht| %>
               <% yacht.bookings.each do |booking| %>
-            <div class="booking-requests-cards">
+            <div class="booking-requests-cards" data-controller="requestbuttons">
                   <h6><%= booking.user.email %> has requested:</h6>
                   <h5><strong><%= booking.yacht.name.upcase%></strong></h5>
                   <p><strong>Check-in date: </strong><%= booking.check_in %></p>
                   <p><strong>Check-out date: </strong><%= booking.check_out %></p>
-                  <p>Requests:   <% if booking.request == nil %>
+                  <p data-requestbuttons-target="requestText">Requests:   <% if booking.request == nil %>
                                   <%= "pending"%>
                                 <% elsif booking.request == true %>
                                 <%= "accepted"%>
@@ -38,8 +38,10 @@
                                 <%= "rejected"%>
                                 <% end %></p>
                   <div class="request-buttons">
-                    <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept"%>
-                    <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%>
+                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="acceptButton">
+                      <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept"%></div>
+                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
+                      <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
                   </div>
           </div>
               <% end %>
