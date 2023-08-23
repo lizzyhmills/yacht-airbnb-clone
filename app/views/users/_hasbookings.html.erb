@@ -1,0 +1,34 @@
+
+<div class="container mt-5">
+  <div class="listing-yacht-container d-flex justify-content-around">
+      <% @bookings.each do |booking| %>
+      <div class="listing-yacht-card">
+            <div class="listing-yacht-image">
+          <% if booking.yacht.photo.attached? %>
+                <img src="<%= cl_image_path booking.yacht.photo.key %>" alt="yacht-image">
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
+              <% end %>
+            </div>
+            <div class="listing-yacht-name">
+                <h5>Your stay with: <%= booking.yacht.name %></h5>
+                <p>Address: <%= booking.yacht.location %></p>
+                <p>Check In : <%= booking.check_in %> | Check Out : <%= booking.check_out %></p>
+                <p> Requesting to stay in <%= booking.yacht.user.first_name %> <%= booking.yacht.user.last_name %>'s Yacht </p>
+                <div class='d-flex'>
+                <p> Status:
+                  <% if booking.request == nil %>
+                    <div class='text-warning'><%= "Pending" %></div>
+                  <% elsif booking.request == true %>
+                    <div class="text-success"><%= "Accepted" %></div>
+                  <% else %>
+                   <div class="text-danger"><%= "Rejected" %></div>
+                  <% end %>
+                </p>
+                </div>
+            </div>
+          </div>
+      <% end %>
+   </div>
+  <div class='text-center rounded'><%= link_to "Browse", yachts_path, class: 'btn btn-primary' %></div>
+</div>
