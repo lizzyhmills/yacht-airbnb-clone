@@ -1,0 +1,23 @@
+.listing-yacht-container {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  img {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.listing-yacht-card {
+  display: grid;
+}
+
+.listing-yacht-name {
+  h5 {
+    margin-bottom: 0px;
+  }
+  padding-top: 6px;
+  display:grid;
+  color: #1F2833;
+}
