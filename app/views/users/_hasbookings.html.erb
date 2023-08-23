@@ -15,6 +15,7 @@
                 <p>Address: <%= booking.yacht.location %></p>
                 <p>Check In : <%= booking.check_in %> | Check Out : <%= booking.check_out %></p>
                 <p> Requesting to stay in <%= booking.yacht.user.first_name %> <%= booking.yacht.user.last_name %>'s Yacht </p>
+                <p><%= "Contact #{booking.yacht.user.first_name} : #{booking.yacht.user.email}" %></p>
                 <div class='d-flex'>
                 <p> Status:
                   <% if booking.request == nil %>
