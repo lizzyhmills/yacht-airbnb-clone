@@ -1,7 +1,7 @@
  <div class="container">
 
 <!-- My yachts iteration-->
-    <h2 class="pt-5">My Yachts</h2>
+    <h2 class="pt-5 pb-3">My Yachts</h2>
   <div class="listing-yacht-container">
       <% @user.yachts.each do |yacht| %>
       <div class="listing-yacht-card">
@@ -21,26 +21,31 @@
    </div>
 
 <!-- My listings iteration-->
-    <h2>My Listings</h2>
+    <h2 class="pt-3 pb-3">My Listings</h2>
       <div class="booking-requests-container">
         <% @user.yachts.each do |yacht| %>
               <% yacht.bookings.each do |booking| %>
-                <h5><%= booking.user.email %></h5>
-                <p>Check-in date:<%= booking.check_in %></p>
-                <p>Check-out date: <%= booking.check_out %></p>
-                <p>Requests:   <% if booking.request == nil %>
-                                <%= "pending"%>
-                              <% elsif booking.request == true %>
-                               <%= "accepted" %>
-                              <% else %>
-                               <%= "rejected"%>
-                              <% end %></p>
-              <%= button_to "accept", accept_booking_path(booking), method: :patch %>
-              <%= button_to "reject", reject_booking_path(booking), method: :patch %>
+            <div class="booking-requests-cards">
+                  <h6><%= booking.user.email %> has requested:</h6>
+                  <h5><strong><%= booking.yacht.name.upcase%></strong></h5>
+                  <p><strong>Check-in date: </strong><%= booking.check_in %></p>
+                  <p><strong>Check-out date: </strong><%= booking.check_out %></p>
+                  <p>Requests:   <% if booking.request == nil %>
+                                  <%= "pending"%>
+                                <% elsif booking.request == true %>
+                                <%= "accepted"%>
+                                <% else %>
+                                <%= "rejected"%>
+                                <% end %></p>
+                  <div class="request-buttons">
+                    <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept"%>
+                    <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%>
+                  </div>
+          </div>
               <% end %>
+           <% end %>
        </div>
-    <% end %>
 
-<div class="container">
+
      <%= link_to "Create New Listing", new_yacht_path, class: "btn btn-primary btn-cta" %>
 </div>
