@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 gem 'faker'
 
+
 gem "dotenv-rails"
 
 gem "cloudinary"
