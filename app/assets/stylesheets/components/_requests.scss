@@ -1,0 +1,17 @@
+.booking-requests-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.booking-requests-cards {
+  grid-template-rows: 1fr 1fr 1fr;
+  display: grid;
+}
+
+.request-buttons {
+  .btn-accept {
+    margin-right: 10px;
+  }
+  display: flex;
+  margin-bottom: 20px;
+}
