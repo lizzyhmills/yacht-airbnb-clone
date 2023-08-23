@@ -12,7 +12,33 @@
           <% if @yacht.photo.attached? %>
             <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" class="show-img">
           <% else %>
-            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
+    </div>
+
+  <div>
+<div class="container">
+  <div class="row">
+    <div class="large-img col-md-6">
+      <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image" class="img-fluid w-100">
+    </div>
+
+    <div class="mini-imgs col-md-6 align-items-end">
+      <div class="row show-style">
+        <div class="col-6">
+          <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image" class="img-fluid">
+        </div>
+        <div class="col-6">
+          <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image" class="img-fluid">
+        </div>
+        <div class="col-6">
+          <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image" class="img-fluid">
+        </div>
+        <div class="col-6">
+          <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
           <% end %>
     </div>
 </div>
@@ -29,11 +55,11 @@
 
   <%= simple_form_for [@yacht, @booking] do |f| %>
     <%= f.input :check_in,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
     <%= f.input :check_out,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
+                as: :string,
+                input_html: { data: { controller: "datepicker" } } %>
 
     <%= f.input :guests %>
     <%= f.submit %>
