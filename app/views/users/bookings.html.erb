@@ -1,4 +1,4 @@
-<h1>My Bookings</h1>
+<h1>Hello from user bookings</h1>
 
 <% @bookings.each do |booking| %>
 <ul>
@@ -15,4 +15,7 @@
 </ul>
 <% end %>
 
-<%= link_to "Browse", yachts_path %>
+
+<% if @bookings.length == 0 %>
+ <%= render partial: 'nobookings' %>
+   <% end %>
