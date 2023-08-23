@@ -1,21 +1,8 @@
-
-
-<% @bookings.each do |booking| %>
-<ul>
-<li>
-<%= booking.yacht.user.first_name %>
-  <% if booking.request == nil %>
-    <%= "pending"  %>
-  <% elsif booking.request == true %>
-    <%= "accepted" %>
-  <% else %>
-    <%= "rejected" %>
-  <% end %>
-</li>
-</ul>
-<% end %>
-
-
-
-
-
+<div class="container border-bottom">
+<h1 class='m-3'>My Bookings</h1>
+<% if @bookings.length.positive? %>
+     <%= render partial: 'hasbookings' %>
+     <% else %>
+     <%= render partial: 'nobookings' %>
+   <% end %>
+</div>
