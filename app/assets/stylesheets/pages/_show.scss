@@ -1,20 +1,25 @@
-// .show-img {
-//   height: 400px;
-//   width: 700px;
-//   border-radius: 5px;
-//   margin: 10px;
-
-// }
-
-.mini-img {
-  width: 100%;
-  height: auto;
+.mini-imgs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 20px;
 }
 
 .show-style {
-  height: 105%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .large-img {
-  border-top-left-radius: 30px;
+  img {
+    border-radius: 10px;
+  }
+}
+
+.mini-imgs img {
+  height: auto;
+  width: 100%;
+  padding-top: 0%;
 }
