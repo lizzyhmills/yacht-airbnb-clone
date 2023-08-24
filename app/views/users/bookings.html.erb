@@ -1,5 +1,9 @@
 <div class="container border-bottom">
-<h1 class='m-3'>My Bookings</h1>
+<div class="top-text-button">
+  <h2 class="mt-5">My Bookings</h2>
+  <div class='text-center rounded mt-2'><%= link_to "Browse Yachts", yachts_path, class: 'btn-small' %></div>
+</div>
+
 <% if @bookings.length.positive? %>
      <%= render partial: 'hasbookings' %>
      <% else %>
