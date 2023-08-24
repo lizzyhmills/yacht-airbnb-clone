@@ -15,6 +15,13 @@ class YachtsController < ApplicationController
     @yacht = Yacht.find(params[:id])
     @user = current_user
     @booking = Booking.new
+    @yacht_arr = Yacht.where(id: params[:id])
+    @markers = @yacht_arr.geocoded.map do |yacht|
+      {
+        lat: yacht.latitude,
+        lng: yacht.longitude,
+      }
+    end
   end
 
   def new
