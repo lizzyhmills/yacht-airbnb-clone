@@ -20,12 +20,14 @@
   img {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    height: 400px;
+    width: 500px;
     // border-top-left-radius: 10%
   }
 }
 
 .mini-imgs img {
-  height: auto;
+  height: 200px;
   width: 100%;
   padding-left: 0px;
 }

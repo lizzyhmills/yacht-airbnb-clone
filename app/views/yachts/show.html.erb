@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="large-img col-md-6">
-      <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
+      <img src="<%= cl_image_path @yacht.photos[0].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
     </div>
 
 
@@ -19,12 +19,12 @@
 
       <div class="row">
         <div class="col-6 new-mini">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-one">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-two">
+          <img src="<%= cl_image_path @yacht.photos[1].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-one">
+          <img src="<%= cl_image_path @yacht.photos[2].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-two">
         </div>
         <div class="col-6 bottom-img">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-three">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-four">
+          <img src="<%= cl_image_path @yacht.photos[3].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-three">
+          <img src="<%= cl_image_path @yacht.photos[4].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-four">
         </div>
       </div>
 
