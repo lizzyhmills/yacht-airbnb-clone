@@ -16,6 +16,13 @@
                 <h5><%= yacht.name %></h5>
                 <p><%= yacht.location %></p>
             </div>
+          <div class="links d-flex justify-content-between">
+            <%= link_to icon('fa-solid', 'pen-to-square'), edit_yacht_path(yacht) %>
+            <%= link_to icon('fa-solid', 'trash'),
+                yacht_path(yacht),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+          </div>
           </div>
       <% end %>
    </div>
