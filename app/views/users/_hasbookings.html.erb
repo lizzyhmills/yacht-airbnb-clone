@@ -1,0 +1,68 @@
+
+<div class="container mt-3">
+  <div class="listing-yacht-container d-flex justify-content-around">
+      <% @bookings.each do |booking| %>
+      <div class="listing-yacht-card">
+            <div class="listing-yacht-image">
+          <% if booking.yacht.photos.attached? %>
+
+           <div id="carouselExampleIndicators<%= booking.yacht.id %>" class="carousel slide" data-interval="false">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="<%= cl_image_path booking.yacht.photos[0].key %>" class="d-block w-100" alt="yacht">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path booking.yacht.photos[1].key %>" class="d-block w-100" alt="yacht kitchen">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path booking.yacht.photos[2].key %>" class="d-block w-100" alt="yacht living room">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path booking.yacht.photos[3].key %>" class="d-block w-100" alt="yacht bedroom">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path booking.yacht.photos[4].key %>" class="d-block w-100" alt="yacht deck">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= booking.yacht.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
+              <% end %>
+            </div>
+            <div class="listing-yacht-name">
+                <h5>Your stay with: <%= booking.yacht.name %></h5>
+                <p>Address: <%= booking.yacht.location %></p>
+                <p>Check In : <%= booking.check_in %> | Check Out : <%= booking.check_out %></p>
+                <p> Requesting to stay in <%= booking.yacht.user.first_name %> <%= booking.yacht.user.last_name %>'s Yacht </p>
+                <p><%= "Contact #{booking.yacht.user.first_name} : #{booking.yacht.user.email}" %></p>
+                <div class='d-flex'>
+                <p> Status:
+                  <% if booking.request == nil %>
+                    <div class='text-warning'><%= "Pending" %></div>
+                  <% elsif booking.request == true %>
+                    <div class="text-success"><%= "Accepted" %></div>
+                  <% else %>
+                   <div class="text-danger"><%= "Rejected" %></div>
+                  <% end %>
+                </p>
+                </div>
+            </div>
+          </div>
+      <% end %>
+   </div>
+</div>

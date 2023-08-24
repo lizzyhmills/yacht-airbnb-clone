@@ -26,9 +26,29 @@ class YachtsController < ApplicationController
     end
   end
 
+  def edit
+    @yacht = Yacht.find(params[:id])
+  end
+
+  def update
+    @yacht = Yacht.find(params[:id])
+    @yacht.update(yacht_params)
+    if @yacht
+      redirect_to yacht_path(@yacht)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @yacht = Yacht.find(params[:id])
+    @yacht.destroy
+    redirect_to mylistings_path, status: :see_other
+  end
+
   private
 
   def yacht_params
-    params.require(:yacht).permit(:capacity, :price_per_night, :name, :description, :location, :amenities, :photo)
+    params.require(:yacht).permit(:capacity, :price_per_night, :name, :description, :location, :amenities, photos: [])
   end
 end

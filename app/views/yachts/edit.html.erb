@@ -1,5 +1,6 @@
+
 <div class="container my-5">
-<h2 class="text-align: left; pb-5" >Adding your new Yacht</h2>
+<h2 class="text-align: left; pb-5" >Edit my Yacht</h2>
 <%= simple_form_for [@yacht] do |f| %>
   <%= f.input :name %>
   <%= f.input :capacity %>
@@ -7,7 +8,7 @@
   <%= f.input :description %>
   <%= f.input :location %>
   <%= f.input :amenities %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photo, as: :file, input_html: { multiple: true }  %>
   <%= f.submit %>
 <% end %>
 <div>
