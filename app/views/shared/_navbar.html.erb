@@ -1,8 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="container-fluid">
+  <% if params[:action] == "index" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+     <i class="fa-solid fa-sailboat"></i>
+     <% end %>
+  <% else %>
     <%= link_to yachts_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-sailboat"></i>
     <% end %>
+  <% end %>
        <%# <p class="brand_name">Jacht</p> %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
