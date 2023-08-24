@@ -27,9 +27,17 @@ puts "creating yachts"
 User.all.each do |user|
   5.times do
     file = URI.open("https://source.unsplash.com/random?yacht")
+    file2 = URI.open("https://source.unsplash.com/random?kitchen")
+    file3 = URI.open("https://source.unsplash.com/random?living-room")
+    file4 = URI.open("https://source.unsplash.com/random?bedroom")
+    file5 = URI.open("https://source.unsplash.com/random?boat-deck")
     yacht = Yacht.new(capacity: rand(1..20), price_per_night: rand(100..900), name: Faker::FunnyName.name, description: Faker::Restaurant.description, location: Faker::Address.street_address, amenities: "helipad")
     yacht.user = user
-    yacht.photo.attach(io: file, filename: "yacht.png", content_type: "image/png")
+    yacht.photos.attach(io: file, filename: "yacht.png", content_type: "image/png")
+    yacht.photos.attach(io: file2, filename: "kitchen.png", content_type: "image/png")
+    yacht.photos.attach(io: file3, filename: "lounge.png", content_type: "image/png")
+    yacht.photos.attach(io: file4, filename: "bedroom.png", content_type: "image/png")
+    yacht.photos.attach(io: file5, filename: "deck.png", content_type: "image/png")
     yacht.save
   end
 

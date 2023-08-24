@@ -22,30 +22,63 @@
 
   <div class="container">
     <div class="yachts_index_container row flex-container flex-direction: row mt-4">
-        <% @yachts.each do |yacht| %>
-            <div class="yacht-cards">
-               <a><%= link_to yacht_path(yacht) do%>
-                  <% if yacht.photo.attached? %>
-                    <img src="<%= cl_image_path yacht.photo.key %>" alt="yacht-image">
-                  <% else %>
-                    <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
-                  <% end %>
-                <%= link_to yacht_path(yacht) do %>
-                    <div class="top-text mt-2">
-                        <h5><%= yacht.name %></h5> <!-- Link to show page -->
-                        <div class="capacity-text"><i class="fa-solid fa-person"></i><%= yacht.capacity %></div>
-                    </div>
-                    <div class="bottom-text">
-                      <p><%= yacht.location %></p>
-                      <p>£<%= yacht.price_per_night %></p>
-                    </div>
-                <% end %>
-              <% end %></a>
+      <% @yachts.each do |yacht| %>
+        <div class="yacht-cards">
+          <%= link_to yacht_path(yacht) do%>
+          <% if yacht.photos.attached? %>
+           <div id="carouselExampleIndicators<%= yacht.id %>" class="carousel slide" data-interval="false">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide-to="4" aria-label="Slide 5"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="<%= cl_image_path yacht.photos[0].key %>" class="d-block w-100" alt="yacht">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path yacht.photos[1].key %>" class="d-block w-100" alt="yacht kitchen">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path yacht.photos[2].key %>" class="d-block w-100" alt="yacht living room">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path yacht.photos[3].key %>" class="d-block w-100" alt="yacht bedroom">
+                </div>
+                <div class="carousel-item">
+                  <img src="<%= cl_image_path yacht.photos[4].key %>" class="d-block w-100" alt="yacht deck">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators<%= yacht.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
+
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eWFjaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="yacht-image">
+          <% end %>
+          <div class="top-text mt-2">
+            <h5><%= link_to yacht.name, yacht_path(yacht) %></h5> <!-- Link to show page -->
+            <div><i class="fa-solid fa-person"></i><%= yacht.capacity %></div>
+          </div>
+          <div class="bottom-text">
+            <p><%= yacht.location %></p>
+            <p>£<%= yacht.price_per_night %></p>
+          </div>
+        <% end %>
+        </div>
         <% end %>
     </div>
   </div>
 </div>
+
 
 
 <!-- Styling notes to do:

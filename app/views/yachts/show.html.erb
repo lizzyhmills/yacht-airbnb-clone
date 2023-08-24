@@ -1,55 +1,83 @@
-<div class="container my-5">
+<div class="container my-2">
 
 <div>
     <h2><%= @yacht.name %></h2>
     <div class="d-flex border-bottom">
-      <p class="m-2"><i class="fa-solid fa-person"></i><%= @yacht.capacity %></p>
-      <p class="m-2">Location: <%= @yacht.location %></p>
+      <h3 class="m-2">Location: <%= @yacht.location %></h3>
     </div>
 
   <div>
 <div class="container">
   <div class="row">
     <div class="large-img col-md-6">
-      <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
+      <img src="<%= cl_image_path @yacht.photos[0].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
     </div>
 
 
-   <!--  <div class="mini-imgs col-md-6 d-flex flex-row">
+
+     <div class="mini-imgs col-md-6 d-flex flex-row">
+
       <div class="row">
-        <div class="col-6">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid">
+        <div class="col-6 new-mini">
+          <img src="<%= cl_image_path @yacht.photos[1].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-one">
+          <img src="<%= cl_image_path @yacht.photos[2].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-two">
         </div>
-        <div class="col-6">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid">
-        </div>
-        <div class="col-6">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid">
-        </div>
-        <div class="col-6">
-          <img src="<%= cl_image_path @yacht.photo.key %>" alt="yacht-image" alt="yacht-image" class="img-fluid">
+        <div class="col-6 bottom-img">
+          <img src="<%= cl_image_path @yacht.photos[3].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-three">
+          <img src="<%= cl_image_path @yacht.photos[4].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-four">
         </div>
       </div>
-      -->
+
     </div>
   </div>
 </div>
     </div>
 </div>
+<div class="d-flex mt-4">
+<div class="yacht-detial-container">
+    <h5>Yatch hosted by <%= @yacht.user.first_name %> <%= @yacht.user.last_name %></h6>
 
-<div class="container mini">
-    <p>Name: <%= @yacht.user.first_name %> <%= @yacht.user.last_name %></p>
-    <p>Price per night: £<%= @yacht.price_per_night %></p>
-    <p>Amenities: <%= @yacht.amenities %></p>
+    <div class="yacht-detail-cards">
+      <div class="yacht-detail-card p-3">
+        <% # <div class="yacht-detail-card-content"> %>
+          <i class="fa-solid fa-person"></i>
+        <% # </div> %>
+        <% # <div class="yacht-detail-card-content"> %>
+          <p><%= @yacht.capacity %></p>
+        <% # </div> %>
+      </div>
+
+      <div class="yacht-detail-card p-3">
+        <% # <div class="yacht-detail-card-content"> %>
+          <i class="fa-solid fa-helicopter"></i>
+        <% # </div> %>
+        <% # <div class="yacht-detail-card-content"> %>
+          <p><%= @yacht.amenities.capitalize %></p>
+        <% # </div> %>
+      </div>
+
+      <div class="yacht-detail-card p-3">
+        <% # <div class="yacht-detail-card-content"> %>
+          <i class="fa-solid fa-user-astronaut"></i>
+        <% # </div> %>
+        <% # <div class="yacht-detail-card-content"> %>
+          <p><%= @yacht.user.bio %></p>
+        <% # </div> %>
+      </div>
+    </div>
+    <div>
+<br>
     <p>Description: <%= @yacht.description %></p>
-    <p>User Bio: <%= @yacht.user.bio %></p>
+    <div class="mt-3">
+      <%= link_to "Back To All Yachts", yachts_path, class: "btn btn-primary btn-cta" %>
+      </div>
+    </div>
+<br>
 
 </div>
 
-<div class="container">
-      <%= link_to "Back To All Yachts", yachts_path, class: "btn btn-primary btn-cta" %>
-<br>
-<br>
+
+<div class="d-flex flex-row justify-content-end align-items-start form">
   <%= simple_form_for [@yacht, @booking] do |f| %>
     <%= f.input :check_in,
                 as: :string,
@@ -57,9 +85,14 @@
     <%= f.input :check_out,
                 as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
-
     <%= f.input :guests %>
-    <%= f.submit %>
+
+
+    <%= f.submit "Create Booking" %>
+    <h4 class="price"><%= @yacht.price_per_night %></h4>
   <% end %>
+
   </div>
+  </div>
+</div>
 </div>
