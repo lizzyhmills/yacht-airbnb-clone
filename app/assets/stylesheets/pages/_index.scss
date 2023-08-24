@@ -24,11 +24,17 @@
 
 .top-text {
   display: flex;
-  justify-content: space-between;
+  margin: 18px 0px 0px 0px;
+  align-items: baseline;
+
   a {
     text-decoration: none;
     font-weight: bold;
     color: #1F2833;
+  }
+  i {
+    margin-left: 8px;
+    padding-right: 6px;
   }
 }
 
