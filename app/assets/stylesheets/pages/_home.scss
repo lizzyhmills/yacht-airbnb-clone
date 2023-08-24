@@ -8,14 +8,14 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  text-shadow: 1px 2px 5px rgba(0,0,0,0.7);
   font-size: 50px;
 }
 
 .banner h2 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 1px 2px 5px rgba(0,0,0,0.50);
   font-size: 40px;
 }
 
@@ -23,9 +23,27 @@
   font-size: 20px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.50);
 }
 
 .h3, h4, h5, h6, p {
   color: rgb(85, 85, 85);
+}
+
+.btn-cta {
+  color: white;
+  font-size: 20px;
+  padding: 20px 60px;
+  margin-top: 40px;
+  border-radius: 4px;
+  background: #000000aa;
+  transition: 0.3s ease;
+  text-decoration: none;
+
+  border:none;
+}
+
+.btn-cta:hover {
+  background: #18c0d6dc;
+  color: #333;
 }
