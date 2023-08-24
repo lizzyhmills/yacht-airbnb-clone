@@ -5,9 +5,19 @@
       <h2>Yachts</h2>
       <p>Explore our magical yachts</p>
     </div>
-    <%= link_to "Go Back",  root_path %> <!-- Link to root -->
-  </div>
+         <div class="col-sm-4 my-3">
+    <%= form_with url: yachts_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "type here"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-outline-info"%>
 
+
+    <% end %>
+  </div>
+  </div>
 
 
   <div class="container">

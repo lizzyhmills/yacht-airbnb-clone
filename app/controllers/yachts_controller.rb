@@ -3,6 +3,12 @@ class YachtsController < ApplicationController
 
   def index
     @yachts = Yacht.all
+    if params[:query].present? && params[:query].to_i == 0
+      sql_subquery = "name ILIKE :query OR location ILIKE :query"
+      @yachts = @yachts.where(sql_subquery, query: "%#{params[:query]}%")
+    elsif params[:query].to_i != 0
+      @yachts = @yachts.where(capacity: params[:query].to_i)
+    end
   end
 
   def show
