@@ -1,16 +1,16 @@
-<div class="container my-2">
+<div class="container">
 
   <div>
 
-    <h2><%= @yacht.name %></h2>
-    <div class="d-flex border-bottom">
-      <h3 class="m-2">Location: <%= @yacht.location %></h3>
+    <h2 class="mt-5"><%= @yacht.name %></h2>
+    <div class="d-flex">
+      <h3 class="mb-3 mt-2">Location: <%= @yacht.location %></h3>
     </div>
 
     <div>
   <div class="container">
     <div class="row">
-      <div class="large-img col-md-6">
+      <div class="large-img col-md-6 px-0">
         <img src="<%= cl_image_path @yacht.photos[0].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
       </div>
 
@@ -71,7 +71,7 @@
       <div>
           <br>
         <p class="text-start"><strong>More about this yacht:</strong> <%= @yacht.description %></p>
-        <div class="mt-3 text-start">
+        <div class="mt-4 text-start">
           <%= link_to "Back To All Yachts", yachts_path, class: "btn-small" %>
         </div>
       </div>
