@@ -65,7 +65,7 @@
                 <button class= "btn btn-primary m-2" data-action="click->editbooking#edit"> Edit </button>
                 <%= link_to "Cancel Booking",
                   yacht_booking_path(booking.yacht, booking),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-warning m-2 rounded", data: {action: "click->editbooking#edit"}
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-warning m-2 rounded"
                 %>
                 <div data-editbooking-target="editform" class="d-none">
                   <%= simple_form_for [booking.yacht, booking] do |f| %>
