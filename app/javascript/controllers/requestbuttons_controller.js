@@ -9,9 +9,14 @@ static targets = ["acceptButton", "rejectButton", "requestText"]
 
   disable(event){
     event.preventDefault()
+    console.log(this.acceptButtonTarget)
+    if (event.target === this.acceptButtonTarget) {
+        this.requestTextTarget.innerHTML = "Request: accepted";
+      } else (event.target === this.rejectButtonTarget) {
+      this.requestTextTarget.innerHTML = "Request: rejected";
+    }
     this.acceptButtonTarget.classList.add("d-none");
     this.rejectButtonTarget.classList.add("d-none");
+    event.preventDefault()
   }
-
-
 }

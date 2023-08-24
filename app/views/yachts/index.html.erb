@@ -14,6 +14,7 @@
     <div class="yachts_index_container row flex-container flex-direction: row mt-4">
         <% @yachts.each do |yacht| %>
           <div class="yacht-cards">
+            <%= link_to yacht_path(yacht) do%>
           <% if yacht.photos.attached? %>
            <div id="carouselExampleIndicators<%= yacht.id %>" class="carousel slide" data-interval="false">
           <div class="carousel-indicators">
@@ -62,6 +63,7 @@
                 <p>£<%= yacht.price_per_night %></p>
 
               </div>
+              <% end %>
         </div>
         <% end %>
     </div>

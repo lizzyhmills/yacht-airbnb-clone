@@ -1,7 +1,11 @@
  <div class="container">
 
 <!-- My yachts iteration-->
+  <div class="top-text-button">
     <h2 class="pt-5 pb-3">My Yachts</h2>
+    <%= link_to "Add a Yacht", new_yacht_path, class: "btn-small" %>
+  </div>
+
   <div class="listing-yacht-container">
       <% @user.yachts.each do |yacht| %>
       <div class="listing-yacht-card">
@@ -28,7 +32,7 @@
    </div>
 
 <!-- My listings iteration-->
-    <h2 class="pt-3 pb-3">My Listings</h2>
+    <h2 class="pt-4 pb-3">My Listings</h2>
       <div class="booking-requests-container">
         <% @user.yachts.each do |yacht| %>
               <% yacht.bookings.each do |booking| %>
@@ -37,7 +41,7 @@
                   <h5><strong><%= booking.yacht.name.upcase%></strong></h5>
                   <p><strong>Check-in date: </strong><%= booking.check_in %></p>
                   <p><strong>Check-out date: </strong><%= booking.check_out %></p>
-                  <p data-requestbuttons-target="requestText">Requests:   <% if booking.request == nil %>
+                  <p data-requestbuttons-target="requestText">Request:   <% if booking.request == nil %>
                                   <%= "pending"%>
                                 <% elsif booking.request == true %>
                                 <%= "accepted"%>
@@ -45,16 +49,15 @@
                                 <%= "rejected"%>
                                 <% end %></p>
                   <div class="request-buttons">
+                      <% if booking.request == nil %>
                     <div data-action="click->requestbuttons#disable" data-requestbuttons-target="acceptButton">
-                      <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept"%></div>
-                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
-                      <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
-                  </div>
+                        <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept" %></div>
+                      <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
+                        <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
+                    <% end %>
+                    </div>
           </div>
               <% end %>
            <% end %>
        </div>
-
-
-     <%= link_to "Create New Listing", new_yacht_path, class: "btn btn-primary btn-cta" %>
 </div>
