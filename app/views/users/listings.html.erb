@@ -1,7 +1,11 @@
  <div class="container">
 
 <!-- My yachts iteration-->
+  <div class="top-text-button">
     <h2 class="pt-5 pb-3">My Yachts</h2>
+    <%= link_to "Add a Yacht", new_yacht_path, class: "btn-small" %>
+  </div>
+
   <div class="listing-yacht-container">
       <% @user.yachts.each do |yacht| %>
       <div class="listing-yacht-card">
@@ -28,7 +32,7 @@
    </div>
 
 <!-- My listings iteration-->
-    <h2 class="pt-3 pb-3">My Listings</h2>
+    <h2 class="pt-4 pb-3">My Listings</h2>
       <div class="booking-requests-container">
         <% @user.yachts.each do |yacht| %>
               <% yacht.bookings.each do |booking| %>
@@ -56,7 +60,4 @@
               <% end %>
            <% end %>
        </div>
-
-
-     <%= link_to "Create New Listing", new_yacht_path, class: "btn-small" %>
 </div>
