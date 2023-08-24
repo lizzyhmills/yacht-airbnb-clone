@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_yacht, only: %i[new create]
-  before_action :set_user, only: %i[new create]
+  before_action :set_yacht, only: %i[new create update]
+  before_action :set_user, only: %i[new create update]
   def index
     @bookings = Booking.all
   end
@@ -32,6 +32,21 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(request: false)
     redirect_to mylistings_path
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to yacht_booking_path(@yacht, @booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to mybookings_path, status: :see_other
   end
 
   private
