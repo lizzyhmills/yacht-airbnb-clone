@@ -3,7 +3,9 @@
 <!-- My yachts iteration-->
   <div class="top-text-button">
     <h2 class="pt-5 pb-3">My Yachts</h2>
+    <div class="button ">
     <%= link_to "Add a Yacht", new_yacht_path, class: "btn-small" %>
+    </div>
   </div>
 
   <div class="listing-yacht-container">
@@ -50,10 +52,10 @@
                                 <% end %></p>
                   <div class="request-buttons">
                       <% if booking.request == nil %>
-                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="acceptButton">
-                        <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept" %></div>
-                      <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
-                        <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
+                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="acceptButton" style="margin-right:10px;">
+                        <%= button_to "Accept", accept_booking_path(booking), method: :patch, class:"btn btn-outline-success d-block mx-auto" %></div>
+                      <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton" style="margin-right:10px;">
+                        <%= button_to "Reject", reject_booking_path(booking), method: :patch, class:"btn btn-outline-danger d-block mx-auto"%></div>
                     <% end %>
                     </div>
           </div>

@@ -15,11 +15,13 @@
 
 .btn-small {
   color: white;
-  padding: 10px 15px;
+  padding: 10px 25px;
   border-radius: 4px;
   background: #1F2833;
   transition: 0.3s ease;
-  text-decoration: none
+  text-decoration: none;
+  font-size: 16px;
+
 }
 
 .btn-small:hover {
