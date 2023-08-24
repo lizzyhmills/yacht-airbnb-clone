@@ -26,3 +26,18 @@
   background: #18C0D6;
   color: white;
 }
+
+
+.btn-small-blue {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background: #18C0D6;
+  transition: 0.3s ease;
+  text-decoration: none
+}
+
+.btn-small-blue:hover {
+  background: #1F2833;
+  color: white;
+}
