@@ -30,7 +30,7 @@
                   <h5><strong><%= booking.yacht.name.upcase%></strong></h5>
                   <p><strong>Check-in date: </strong><%= booking.check_in %></p>
                   <p><strong>Check-out date: </strong><%= booking.check_out %></p>
-                  <p data-requestbuttons-target="requestText">Requests:   <% if booking.request == nil %>
+                  <p data-requestbuttons-target="requestText">Request:   <% if booking.request == nil %>
                                   <%= "pending"%>
                                 <% elsif booking.request == true %>
                                 <%= "accepted"%>
@@ -38,11 +38,13 @@
                                 <%= "rejected"%>
                                 <% end %></p>
                   <div class="request-buttons">
+                      <% if booking.request == nil %>
                     <div data-action="click->requestbuttons#disable" data-requestbuttons-target="acceptButton">
-                      <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept"%></div>
-                    <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
-                      <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
-                  </div>
+                        <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-accept" %></div>
+                      <div data-action="click->requestbuttons#disable" data-requestbuttons-target="rejectButton">
+                        <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-reject"%></div>
+                    <% end %>
+                    </div>
           </div>
               <% end %>
            <% end %>
