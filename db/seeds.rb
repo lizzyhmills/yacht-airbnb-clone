@@ -24,6 +24,18 @@ User.create!(email: "bark@lw.org", password: "123456", first_name: "Barkhadle", 
 puts " Barkhadle created"
 
 puts "creating yachts"
+
+yacht_locations = [
+  "20200 Bastia, France",
+  "Harbour Island, Bahamas",
+  "Campania, Italy",
+  "La Romana, Dominican Republic",
+  "Portsmouth Harbour",
+  "83990 Saint-Tropez, France",
+  "Porto di Sant'Erasmo, Italy",
+  "Port of Amsterdam"
+]
+
 User.all.each do |user|
   5.times do
     file = URI.open("https://source.unsplash.com/random?yacht")
@@ -31,7 +43,7 @@ User.all.each do |user|
     file3 = URI.open("https://source.unsplash.com/random?living-room")
     file4 = URI.open("https://source.unsplash.com/random?bedroom")
     file5 = URI.open("https://source.unsplash.com/random?boat-deck")
-    yacht = Yacht.new(capacity: rand(1..20), price_per_night: rand(100..900), name: Faker::FunnyName.name, description: Faker::Restaurant.description, location: Faker::Address.street_address, amenities: "helipad")
+    yacht = Yacht.new(capacity: rand(1..20), price_per_night: rand(100..900), name: Faker::TvShows::RuPaul.queen, description: Faker::Restaurant.description, location: yacht_locations.sample, amenities: "helipad")
     yacht.user = user
     yacht.photos.attach(io: file, filename: "yacht.png", content_type: "image/png")
     yacht.photos.attach(io: file2, filename: "kitchen.png", content_type: "image/png")
@@ -40,7 +52,6 @@ User.all.each do |user|
     yacht.photos.attach(io: file5, filename: "deck.png", content_type: "image/png")
     yacht.save
   end
-
 end
 puts "yachts created"
 
@@ -51,12 +62,3 @@ user2 = User.find_by(first_name: "Liz")
 Booking.create!(user: user, yacht: user2.yachts.last, check_in: '2023-02-23', check_out: '2023-03-01', guests: 4)
 Booking.create!(user: user, yacht: user2.yachts.first, check_in: '2023-03-25', check_out: '2023-04-02', guests: 7)
 puts "2 bookings created"
-
-puts "creating reviews"
-Yachts.all.each do |yacht|
-  3.times do
-    review = Review.new(content: "I had the best time on this yacht", rating: rand(0..5))
-    review.yacht = yacht
-    review.save!
-  end
-end
