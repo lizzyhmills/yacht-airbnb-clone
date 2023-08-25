@@ -78,7 +78,26 @@
               <p class="text-start my-3 line-height-2"><%= @yacht.description %></span></p>
          </div>
          <br>
-        <div class="reviews">
+      </div>
+
+
+
+      <div  class="d-flex flex-row align-items-start form my-4" id="yacht-show">
+         <%= simple_form_for [@yacht, @booking] do |f| %>
+         <%= f.input :check_in,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+         <%= f.input :check_out,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+         <%= f.input :guests %>
+         <%= f.submit "Book now", class: "btn btn-outline-info border-1"  %>
+        <h4 class=" mt-4 price mb-1">Total: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night %></h4>
+         <% end %>
+      </div>
+
+   </div>
+                 <div class="reviews">
           <h2 class="border-bottom">Reviews</h2>
           <% @yacht.reviews.each do |review|%>
             <div class="review-card">
@@ -89,24 +108,6 @@
 
           <% end %>
         </div>
-
-      </div>
-
-      <div  class="d-flex flex-row align-items-start form my-3" id="yacht-show">
-         <%= simple_form_for [@yacht, @booking] do |f| %>
-         <%= f.input :check_in,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-         <%= f.input :check_out,
-            as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
-         <%= f.input :guests %>
-         <%= f.submit "Book now", class: "btn btn-outline-info border-1"  %>
-        <h4 class=" my-3 price">Total: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night %></h4>
-         <% end %>
-      </div>
-
-   </div>
 </div>
 <div style="width: 100%; height: 600px;"
    data-controller="map"
