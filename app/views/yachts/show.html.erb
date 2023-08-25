@@ -43,8 +43,8 @@
          </div>
          <br>
          <div class="yacht-detail-cards">
-            <div class="col-md-6">
-            <div class="yacht-detail-card p-3 ">
+            <div class="col-md-3">
+            <div class="yacht-detail-card  p-3 ">
                <% # <div class="yacht-detail-card-content"> %>
                <i class="fa-solid fa-person"></i>
                <% # </div> %>
@@ -90,15 +90,8 @@
           <% end %>
         </div>
 
-        <% end %>
-
       </div>
 
-    </div>
-
-
-
-      </div>
       <div  class="d-flex flex-row align-items-start form my-3" id="yacht-show">
          <%= simple_form_for [@yacht, @booking] do |f| %>
          <%= f.input :check_in,
