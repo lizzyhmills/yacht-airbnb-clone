@@ -1,108 +1,98 @@
-<div class="container my-2">
 
-  <div>
 
-    <h2><%= @yacht.name %></h2>
-    <div class="d-flex border-bottom">
-      <h3 class="m-2">Location: <%= @yacht.location %></h3>
-    </div>
-
-    <div>
-  <div class="container">
-    <div class="row">
-      <div class="large-img col-md-6">
-        <img src="<%= cl_image_path @yacht.photos[0].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
-      </div>
-
-      <div class="mini-imgs col-md-6 d-flex flex-row">
-
-        <div class="row">
-          <div class="col-6 new-mini">
-            <img src="<%= cl_image_path @yacht.photos[1].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-one">
-            <img src="<%= cl_image_path @yacht.photos[2].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-two">
-          </div>
-          <div class="col-6 bottom-img">
-            <img src="<%= cl_image_path @yacht.photos[3].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-three">
-            <img src="<%= cl_image_path @yacht.photos[4].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-four">
-          </div>
+<div class="container my-5">
+   <div class=" d-flex flex-row justify-content-between">
+   <div class="name-location-container">
+      <h2 class= "mx-3"><%= @yacht.name %></h2>
+        <div class="d-flex ">
+          <h3 class="mx-3 my-3">Location: <%= @yacht.location %></h3>
         </div>
       </div>
-    </div>
-  </div>
+       <div class="mt-3 text-start">
+               <%= link_to "Back To All Yachts", yachts_path, class: "btn-small" %>
+            </div>
+   </div>
+
+
+   <div>
+      <div class="container">
+         <div class="row">
+            <div class="large-img col-md-6">
+               <img src="<%= cl_image_path @yacht.photos[0].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid w-100">
+            </div>
+            <div class="mini-imgs col-md-6 d-flex flex-row">
+               <div class="row">
+                  <div class="col-6 new-mini">
+                     <img src="<%= cl_image_path @yacht.photos[1].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-one">
+                     <img src="<%= cl_image_path @yacht.photos[2].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-two">
+                  </div>
+                  <div class="col-6 bottom-img">
+                     <img src="<%= cl_image_path @yacht.photos[3].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-three">
+                     <img src="<%= cl_image_path @yacht.photos[4].key %>" alt="yacht-image" alt="yacht-image" class="img-fluid img-four">
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-  </div>
+   </div>
+   <div class="d-flex mt-4 justify-content-between">
+      <div class="yacht-detial-container text-center" style="margin: 10px;">
+         <div class="text-start">
+            <h5>
+            Yatch hosted by <%= @yacht.user.first_name %> <%= @yacht.user.last_name %></h6>
+         </div>
+         <br>
+         <div class="yacht-detail-cards">
+            <div class="yacht-detail-card p-3 ">
+               <% # <div class="yacht-detail-card-content"> %>
+               <i class="fa-solid fa-person"></i>
+               <% # </div> %>
+               <% # <div class="yacht-detail-card-content"> %>
+               <p><%= @yacht.capacity %></p>
+               <% # </div> %>
+            </div>
+            <div class="yacht-detail-card p-3 ">
+               <% # <div class="yacht-detail-card-content"> %>
+               <i class="fa-solid fa-helicopter"></i>
+               <% # </div> %>
+               <% # <div class="yacht-detail-card-content"> %>
+               <p><%= @yacht.amenities.capitalize %></p>
+               <% # </div> %>
+            </div>
+            <div class="yacht-detail-card p-3 ">
+               <% # <div class="yacht-detail-card-content"> %>
+               <i class="fa-solid fa-user-astronaut"></i>
+               <% # </div> %>
+               <% # <div class="yacht-detail-card-content"> %>
+               <p><%= @yacht.user.bio %></p>
+               <% # </div> %>
+            </div>
+         </div>
+         <div>
+            <br>
+            <p class="text-start"><strong>More about this yacht:</strong> <%= @yacht.description %></p>
 
-  <div class="d-flex mt-4 justify-content-between">
-
-    <div class="yacht-detial-container text-center" style="margin: 10px;">
-      <div class="text-start">
-        <h5>Yatch hosted by <%= @yacht.user.first_name %> <%= @yacht.user.last_name %></h6>
+         </div>
+         <br>
       </div>
-      <br>
-      <div class="yacht-detail-cards">
-        <div class="yacht-detail-card p-3">
-          <% # <div class="yacht-detail-card-content"> %>
-            <i class="fa-solid fa-person"></i>
-          <% # </div> %>
-          <% # <div class="yacht-detail-card-content"> %>
-            <p><%= @yacht.capacity %></p>
-          <% # </div> %>
-        </div>
-
-        <div class="yacht-detail-card p-3">
-          <% # <div class="yacht-detail-card-content"> %>
-            <i class="fa-solid fa-helicopter"></i>
-          <% # </div> %>
-          <% # <div class="yacht-detail-card-content"> %>
-            <p><%= @yacht.amenities.capitalize %></p>
-          <% # </div> %>
-        </div>
-
-        <div class="yacht-detail-card p-3">
-          <% # <div class="yacht-detail-card-content"> %>
-            <i class="fa-solid fa-user-astronaut"></i>
-          <% # </div> %>
-          <% # <div class="yacht-detail-card-content"> %>
-            <p><%= @yacht.user.bio %></p>
-          <% # </div> %>
-        </div>
+      <div class="d-flex flex-row align-items-start form" id="yacht-show">
+         <%= simple_form_for [@yacht, @booking] do |f| %>
+         <%= f.input :check_in,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+         <%= f.input :check_out,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+         <%= f.input :guests %>
+         <%= f.submit "Book now", class: "btn btn-outline-info border-1"  %>
+         <h4 class="price">Total £<%= @yacht.price_per_night %></h4>
+         <% end %>
       </div>
-
-      <div>
-          <br>
-        <p class="text-start"><strong>More about this yacht:</strong> <%= @yacht.description %></p>
-        <div class="mt-3 text-start">
-          <%= link_to "Back To All Yachts", yachts_path, class: "btn-small" %>
-        </div>
-      </div>
-      <br>
-
-    </div>
-
-
-    <div class="d-flex flex-row align-items-start form" id="yacht-show">
-      <%= simple_form_for [@yacht, @booking] do |f| %>
-        <%= f.input :check_in,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
-        <%= f.input :check_out,
-                    as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
-        <%= f.input :guests %>
-
-
-
-        <%= f.submit "Create Booking" %>
-        <h4 class="price">Total £<%= @yacht.price_per_night %></h4>
-      <% end %>
-
-
-      </div>
-      </div>
-    </div>
-    <div style="width: 100%; height: 600px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-    </div>
+   </div>
+</div>
+<div style="width: 100%; height: 600px;"
+   data-controller="map"
+   data-map-markers-value="<%= @markers.to_json %>"
+   data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+</div>
 </div>
