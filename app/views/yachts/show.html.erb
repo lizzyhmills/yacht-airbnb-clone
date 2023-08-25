@@ -43,6 +43,7 @@
          </div>
          <br>
          <div class="yacht-detail-cards">
+            <div class="col-md-6">
             <div class="yacht-detail-card p-3 ">
                <% # <div class="yacht-detail-card-content"> %>
                <i class="fa-solid fa-person"></i>
@@ -58,6 +59,7 @@
                <% # <div class="yacht-detail-card-content"> %>
                <p><%= @yacht.amenities.capitalize %></p>
                <% # </div> %>
+            </div>
             </div>
             <div class="yacht-detail-card p-3 ">
                <% # <div class="yacht-detail-card-content"> %>
@@ -88,7 +90,7 @@
         </div>
 
       </div>
-      <div  class="d-flex flex-row align-items-start form" id="yacht-show">
+      <div  class="d-flex flex-row align-items-start form my-3" id="yacht-show">
          <%= simple_form_for [@yacht, @booking] do |f| %>
          <%= f.input :check_in,
             as: :string,
@@ -98,7 +100,7 @@
             input_html: { data: { controller: "datepicker" } } %>
          <%= f.input :guests %>
          <%= f.submit "Book now", class: "btn btn-outline-info border-1"  %>
-        <h4 class="price">Total: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night %></h4>
+        <h4 class=" my-3 price">Total: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night %></h4>
          <% end %>
       </div>
    </div>
