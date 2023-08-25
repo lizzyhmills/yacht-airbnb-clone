@@ -68,9 +68,13 @@
             <h5 class="ml-0"><%= link_to yacht.name, yacht_path(yacht) %></h5> <!-- Link to show page -->
             <div><i class="fa-solid fa-person"></i><%= yacht.capacity %></div>
           </div>
+            <div><%yacht.reviews.each do |review| %>
+                  <%= review.rating %> ⭐️
+                  <% end %>
+            </div>
           <div class="bottom-text">
             <p><%= yacht.location %></p>
-            <p>£<%= yacht.price_per_night %>0</p>
+            <p>PPN £<%= yacht.price_per_night %>0</p>
           </div>
         <% end %>
         </div>
