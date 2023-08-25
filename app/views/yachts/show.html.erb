@@ -98,7 +98,10 @@
 
    </div>
       <div class="reviews">
-        <h2>Reviews</h2>
+       <div class="top-review-text">
+          <h2>Reviews</h2>
+          <%= link_to "Add a Review", new_yacht_review_path(@yacht), class: "btn btn-outline-info border-1" %>
+        </div>
         <% @yacht.reviews.each do |review|%>
           <div class="review-card">
             <div><%= "⭐️"*review.rating %> -
