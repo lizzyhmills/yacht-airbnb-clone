@@ -51,3 +51,12 @@ user2 = User.find_by(first_name: "Liz")
 Booking.create!(user: user, yacht: user2.yachts.last, check_in: '2023-02-23', check_out: '2023-03-01', guests: 4)
 Booking.create!(user: user, yacht: user2.yachts.first, check_in: '2023-03-25', check_out: '2023-04-02', guests: 7)
 puts "2 bookings created"
+
+puts "creating reviews"
+Yachts.all.each do |yacht|
+  3.times do
+    review = Review.new(content: "I had the best time on this yacht", rating: rand(0..5))
+    review.yacht = yacht
+    review.save!
+  end
+end

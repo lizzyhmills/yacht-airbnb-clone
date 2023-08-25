@@ -1,5 +1,6 @@
 class Yacht < ApplicationRecord
   has_many_attached :photos
+  has_many :reviews
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :name, presence: true

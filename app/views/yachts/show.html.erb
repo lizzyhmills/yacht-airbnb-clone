@@ -76,6 +76,17 @@
               <p class="text-start my-3 line-height-2"><%= @yacht.description %></span></p>
          </div>
          <br>
+        <div class="reviews">
+          <h2 class="border-bottom">Reviews</h2>
+          <% @yacht.reviews.each do |review|%>
+            <div class="review-card">
+              <%= review.user.first_name %> -
+              <%= review.content %>
+              <%= review.rating %> ⭐️
+            </div>
+          <% end %>
+        </div>
+
       </div>
       <div  class="d-flex flex-row align-items-start form" id="yacht-show">
          <%= simple_form_for [@yacht, @booking] do |f| %>
