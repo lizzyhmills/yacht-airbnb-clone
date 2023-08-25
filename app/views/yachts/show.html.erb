@@ -96,15 +96,15 @@
       <%= simple_form_for [@yacht, @booking] do |f| %>
         <%= f.input :check_in,
                     as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
+                    input_html: { data: { controller: "datepicker", target: "check-in-date"} } %>
         <%= f.input :check_out,
                     as: :string,
-                    input_html: { data: { controller: "datepicker" } } %>
+                    input_html: { data: { controller: "datepicker", target: "check-out-date"} } %>
         <%= f.input :guests %>
 
 
 
-        <%= f.submit "Create Booking" %>
+        <%= f.submit "Create Booking"%>
         <h4 class="price">Total £<%= @yacht.price_per_night %>0</h4>
       <% end %>
 
