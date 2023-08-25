@@ -23,6 +23,17 @@
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-   <%= render "shared/footer" %>
+      <div id="footer">
+          <%= render "shared/footer" %>
+
+      </div>
+         <style>
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+    </style>
   </body>
 </html>
