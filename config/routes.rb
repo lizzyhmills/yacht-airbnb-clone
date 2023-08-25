@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'mylistings', to: 'users#listings'
   resources :yachts do
     resources :bookings
+    resources :reviews
   end
 
   resources :bookings, only: [] do
