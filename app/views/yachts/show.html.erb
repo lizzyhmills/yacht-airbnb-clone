@@ -44,7 +44,7 @@
          <br>
          <div class="yacht-detail-cards">
             <div class="col-md-3">
-            <div class="yacht-detail-card  p-3 ">
+            <div class="yacht-detail-card pl-4 ">
                <% # <div class="yacht-detail-card-content"> %>
                <i class="fa-solid fa-person"></i>
                <% # </div> %>
@@ -52,7 +52,7 @@
                <p><%= @yacht.capacity %></p>
                <% # </div> %>
             </div>
-            <div class="yacht-detail-card p-3 ">
+            <div class="yacht-detail-card ">
                <% # <div class="yacht-detail-card-content"> %>
                <i class="fa-solid fa-helicopter"></i>
                <% # </div> %>
@@ -61,7 +61,7 @@
                <% # </div> %>
             </div>
             </div>
-            <div class="yacht-detail-card p-3 ">
+            <div class="yacht-detail-card  w-100 ">
                <% # <div class="yacht-detail-card-content"> %>
                <i class="fa-solid fa-user-astronaut"></i>
                <% # </div> %>
@@ -82,7 +82,7 @@
 
 
 
-      <div  class="d-flex flex-row align-items-start form my-4" id="yacht-show">
+      <div  class="d-flex align-items-start form" id="yacht-show" style="height: fit-content;">
          <%= simple_form_for [@yacht, @booking] do |f| %>
          <%= f.input :check_in,
             as: :string,
@@ -92,7 +92,8 @@
             input_html: { data: { controller: "datepicker" } } %>
          <%= f.input :guests %>
          <%= f.submit "Book now", class: "btn btn-outline-info border-1"  %>
-        <h4 class=" mt-4 price mb-1">Total: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night %></h4>
+        <h4 class=" mt-5
+         price mb-5">Price per night: <span style="margin-right: 50px;"></span> £<%= @yacht.price_per_night%>0</h4>
          <% end %>
       </div>
 
